@@ -15,20 +15,20 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     # get user input for city (chicago, new york city, washington).
     city = input("Would you like to see data for Chicago, New York City, or Washington?\n").lower()
     # Checks if user has entered correctly from list of cities
     while city != 'chicago' and city != 'washington' and city != 'new york city':
             city = input('Please enter either "Chicago", "New York City", or "Washington"\n').lower()
-        
-    # get user input for month (all, january, february, ... , june)        
+
+    # get user input for month (all, january, february, ... , june)
     response = input("Would you like to filter the data by month, day, or not at all?\n").lower()
-          
+
     while response != 'month' and response != 'day' and response != 'not at all':
             response = input('Please enter either "month", "day", or "not at all"\n').lower()
     # get user input for month (all, january, february, ... , june)
-    # Sets day to all    
+    # Sets day to all
     if response == 'month':
             day = 'all'
             month = input('Please enter the month for which to filter data - January, February, March, April, May, or June?\n').lower()
@@ -36,7 +36,7 @@ def get_filters():
                 month = input('Please enter either January, February, March, April, May, or June\n').lower()
     # get user input for day as integers 0 through 6 for Sunday through Saturday
     # Returns str of day of week based upon index from user input
-    # Sets month to all            
+    # Sets month to all
     elif response == 'day':
             month = 'all'
             days_of_week = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
@@ -114,7 +114,7 @@ def time_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
@@ -133,7 +133,7 @@ def station_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
@@ -145,10 +145,10 @@ def trip_duration_stats(df):
 
     # display mean travel time
     print('The mean travel time =', df['Trip Duration'].mean())
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
@@ -172,7 +172,7 @@ def user_stats(df):
     # No data in washington checked
     if city == 'washington':
         print('No birth year data available.\n')
-    else: 
+    else:
         print('\nThe earliest birth year =', df['Birth Year'].astype('Int64').min())
         print('The most recent birth year =', df['Birth Year'].astype('Int64').max())
         print('The most common birth year =', df['Birth Year'].astype('Int64').mode()[0])
@@ -182,29 +182,29 @@ def user_stats(df):
 
 def printing_data(df):
     """prints the database on a 5 line increment until completely shown or user opts out
-    
+
     Args:
         Increment = set initialy at 5 - this can be seen as a max increment
-    
+
         Total_printed = tracks how many lines have been printed thus far
-    
+
         Remaining  = tracks how many lines have not yet been printed
-    
+
         incrementa = checks to make sure if any remaining lines to be printed are less that increment
-    
+
     Returns:
         Prompt if the user wants to see data
         Printed data on increments of 5 (or less if less lines available)
-    
+
     """
-    increment = 5 # Default and maximum increment for printing
+    increment = 10 # Default and maximum increment for printing
     total_printed = 0 # Initial count of lines printed
     remaining = len(df) - total_printed # Reads length of datafile and tracks how many left to print
     incrementa = min(increment, remaining) # Adjusts printing increment if remaining lines thess than increment (i.e.5)
     # increment being checked for end of file or lines being less than 5
     while incrementa > 0:
             # asking if user wants to see data. Only prints if answer is yes
-            print_opt = input('Would you like to print raw data 5 lines at a time (yes of no)?').lower()
+            print_opt = input('Would you like to print raw data 10 lines at a time (yes of no)?').lower()
             if print_opt != 'yes':
                 break
             # prints at increments of 5 or less abd resets tracker arguments
@@ -216,7 +216,7 @@ def printing_data(df):
             if total_printed == len(df):
                 print('All data has been printed.')
                 break
-   
+
 while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
@@ -229,9 +229,3 @@ while True:
         restart = input('\nWould you like to restart? Enter yes or no.\n').lower()
         if restart.lower() != 'yes':
             break
-
-        
-        
-        
-        
-        
