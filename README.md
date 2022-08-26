@@ -7,7 +7,7 @@
 Bikeshare
 
 ### Description
-Bikeshare is python script that allows a user to retrieve statics on customer usage
+Bikeshare_BMR.py is python script that allows a user to retrieve statics on customer usage
 for a bikeshare company.
 
 ### Files used
