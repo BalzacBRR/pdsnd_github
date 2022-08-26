@@ -17,4 +17,4 @@ new_york_city.csv
 washington.csv
 
 ### Credits
-Shout out to Udacity reviewers who gave some nice feedback on the project.
+Thank you to the Udacity reviewers who gave some nice feedback on the project.
