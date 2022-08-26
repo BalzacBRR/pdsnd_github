@@ -181,10 +181,10 @@ def user_stats(df):
     print('-'*40)
 
 def printing_data(df):
-    """prints the database on a 5 line increment until completely shown or user opts out
+    """prints the database on a 10 line increment until completely shown or user opts out
 
     Args:
-        Increment = set initialy at 5 - this can be seen as a max increment
+        Increment = set initialy at 10 - this can be seen as a max increment
 
         Total_printed = tracks how many lines have been printed thus far
 
@@ -194,7 +194,7 @@ def printing_data(df):
 
     Returns:
         Prompt if the user wants to see data
-        Printed data on increments of 5 (or less if less lines available)
+        Printed data on increments of 10 (or less if less lines available)
 
     """
     increment = 10 # Default and maximum increment for printing
